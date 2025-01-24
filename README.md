@@ -1,6 +1,4 @@
-# Unsupported, please fork if you would like to make changes
-
-ripple
+ripple (forked from [rubblelabs/ripple](https://github.com/rubblelabs/ripple))
 ======
 
 Go packages to interact with the Ripple protocol.

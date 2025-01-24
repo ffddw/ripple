@@ -10,8 +10,6 @@ jobs:
   variables:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
       - name: get go version
         id: go-version
         run: echo go-version=$(cat .go-version) >> $GITHUB_OUTPUT
@@ -25,5 +23,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ needs.variables.outputs.go-version }}
+      - name: checkout
+        uses: actions/checkout@v4
       - name: tests
         run: make test

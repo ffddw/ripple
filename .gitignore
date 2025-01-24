@@ -31,3 +31,5 @@ _testmain.go
 # IDE specific
 .idea
 *.iml
+
+.issue_title

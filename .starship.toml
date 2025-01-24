@@ -1,0 +1,5 @@
+[custom.issue_title]
+format = "\n[$output]($style)"
+command = "cat $(git rev-parse --show-toplevel)/.issue_title"
+when = "test -s $(git rev-parse --show-toplevel)/.issue_title"
+style = ""

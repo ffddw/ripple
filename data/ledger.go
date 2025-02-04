@@ -14,7 +14,7 @@ type LedgerHeader struct {
 
 type Ledger struct {
 	LedgerHeader
-	Hash         Hash256          `json:"hash"`
+	Hash         Hash256          `json:"ledger_hash"`
 	Closed       bool             `json:"closed"`
 	Accepted     bool             `json:"accepted"`
 	Transactions TransactionSlice `json:"transactions,omitempty"`

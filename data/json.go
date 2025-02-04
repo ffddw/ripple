@@ -18,7 +18,6 @@ type ledgerJSON Ledger
 type ledgerExtraJSON struct {
 	ledgerJSON
 	HumanCloseTime *rippleHumanTime `json:"close_time_human"`
-	LedgerHash     Hash256          `json:"ledger_hash"`
 	TotalCoins     uint64           `json:"totalCoins,string"`
 	SequenceNumber uint32           `json:"seqNum,string"`
 }
@@ -27,7 +26,6 @@ func (l Ledger) MarshalJSON() ([]byte, error) {
 	return json.Marshal(ledgerExtraJSON{
 		ledgerJSON:     ledgerJSON(l),
 		HumanCloseTime: l.CloseTime.human(),
-		LedgerHash:     l.Hash,
 		TotalCoins:     l.TotalXRP,
 		SequenceNumber: l.LedgerSequence,
 	})

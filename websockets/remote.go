@@ -321,12 +321,12 @@ func (r *Remote) StreamLedgerData(ledger interface{}) chan data.LedgerEntrySlice
 }
 
 // Synchronously gets a single ledger
-func (r *Remote) Ledger(ledger interface{}, transactions bool) (*LedgerResult, error) {
+func (r *Remote) Ledger(ledger interface{}, transactions bool, expand bool) (*LedgerResult, error) {
 	cmd := &LedgerCommand{
 		Command:      newCommand("ledger"),
 		LedgerIndex:  ledger,
 		Transactions: transactions,
-		Expand:       true,
+		Expand:       expand,
 	}
 	r.outgoing <- cmd
 	<-cmd.Ready

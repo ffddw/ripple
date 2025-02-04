@@ -110,7 +110,7 @@ func main() {
 	case len(matches[2]) > 0:
 		seq, err := strconv.ParseUint(matches[2], 10, 32)
 		checkErr(err)
-		ledger, err := r.Ledger(seq, true)
+		ledger, err := r.Ledger(seq, true, true)
 		checkErr(err)
 		fmt.Println("Getting transactions for: ", seq)
 		for _, txm := range ledger.Ledger.Transactions {

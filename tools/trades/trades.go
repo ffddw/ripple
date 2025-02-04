@@ -52,7 +52,7 @@ func stream(r *websockets.Remote, filter *data.Account) {
 
 func download(r *websockets.Remote, start, end uint32, filter *data.Account) {
 	for ledger := start; ledger <= end; ledger++ {
-		result, err := r.Ledger(ledger, true)
+		result, err := r.Ledger(ledger, true, true)
 		checkErr(err, true)
 		for _, tx := range result.Ledger.Transactions {
 			tx.LedgerSequence = result.Ledger.LedgerSequence

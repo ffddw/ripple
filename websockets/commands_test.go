@@ -2,7 +2,7 @@ package websockets
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/ffddw/ripple/data"
@@ -16,7 +16,7 @@ type MessagesSuite struct{}
 var _ = Suite(&MessagesSuite{})
 
 func readResponseFile(c *C, msg interface{}, path string) {
-	b, err := ioutil.ReadFile(path)
+	b, err := os.ReadFile(path)
 	if err != nil {
 		c.Error(err)
 	}

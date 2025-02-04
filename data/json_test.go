@@ -2,7 +2,7 @@ package data
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 
 	"github.com/juju/testing/checkers"
@@ -28,7 +28,7 @@ func (s *JSONSuite) TestTransactionsJSON(c *C) {
 	files, err := filepath.Glob("testdata/transaction_*.json")
 	c.Assert(err, IsNil)
 	for _, f := range files {
-		b, err := ioutil.ReadFile(f)
+		b, err := os.ReadFile(f)
 		c.Assert(err, IsNil)
 		var txm TransactionWithMetaData
 		c.Assert(json.Unmarshal(b, &txm), IsNil)
@@ -42,7 +42,7 @@ func (s *JSONSuite) TestLedgersJSON(c *C) {
 	files, err := filepath.Glob("testdata/ledger_*.json")
 	c.Assert(err, IsNil)
 	for _, f := range files {
-		b, err := ioutil.ReadFile(f)
+		b, err := os.ReadFile(f)
 		c.Assert(err, IsNil)
 		var ledger Ledger
 		c.Assert(json.Unmarshal(b, &ledger), IsNil)

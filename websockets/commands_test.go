@@ -160,3 +160,25 @@ func (s *MessagesSuite) TestAccountInfoResponse(c *C) {
 	c.Assert(*msg.Result.AccountData.Sequence, Equals, uint32(546))
 	c.Assert(msg.Result.AccountData.Balance.String(), Equals, "10321199.422233")
 }
+
+func (s *MessagesSuite) TestServerStateResponse(c *C) {
+	msg := &ServerStateCommand{}
+	readResponseFile(c, msg, "testdata/server_state.json")
+
+	// Response fields
+	c.Assert(msg.Status, Equals, "success")
+	c.Assert(msg.Type, Equals, "response")
+
+	c.Assert(msg.Result.State.CompleteLedgers, Equals, "93610338-93958930")
+	c.Assert(msg.Result.State.NetworkId, Equals, 0)
+	c.Assert(msg.Result.State.PubkeyNode, Equals, "n9LRU27FWoEwEhxKLeJKanjZq7ekfdx3dTQhnjnmuVnuubYvLSwh")
+	c.Assert(msg.Result.State.ServerState, Equals, "full")
+	c.Assert(msg.Result.State.Ports, HasLen, 2)
+	c.Assert(msg.Result.State.Ports[1].Protocol[0], Equals, "peer")
+	c.Assert(msg.Result.State.StateAccounting.Connected.DurationUs, Equals, "1086992087")
+	c.Assert(msg.Result.State.StateAccounting.Disconnected.DurationUs, Equals, "1056155")
+	c.Assert(msg.Result.State.Time, Equals, "2025-Feb-06 09:10:45.542639 UTC")
+	c.Assert(msg.Result.State.Uptime, Equals, 270655)
+	c.Assert(msg.Result.State.ValidatedLedger.CloseTime, Equals, 792148241)
+	c.Assert(msg.Result.State.ValidatedLedger.Hash, Equals, "0A6DFE7685BB62B5D434DDF8939DA3C617C6988BC9BF65409DB4BE035A7C1001")
+}

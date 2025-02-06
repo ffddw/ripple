@@ -300,3 +300,72 @@ type FeeResult struct {
 	MaxQueueSize uint32 `json:"max_queue_size,string"`
 	Status       string `json:"status"`
 }
+
+type ServerStateCommand struct {
+	*Command
+	Result *ServerStateResult `json:"result,omitempty"`
+}
+
+type ServerStateResult struct {
+	State struct {
+		BuildVersion          string `json:"build_version"`
+		CompleteLedgers       string `json:"complete_ledgers"`
+		InitialSyncDurationUs string `json:"initial_sync_duration_us"`
+		IoLatencyMs           int    `json:"io_latency_ms"`
+		JqTransOverflow       string `json:"jq_trans_overflow"`
+		LastClose             struct {
+			ConvergeTime int `json:"converge_time"`
+			Proposers    int `json:"proposers"`
+		} `json:"last_close"`
+		LoadBase                 int    `json:"load_base"`
+		LoadFactor               int    `json:"load_factor"`
+		LoadFactorFeeEscalation  int    `json:"load_factor_fee_escalation"`
+		LoadFactorFeeQueue       int    `json:"load_factor_fee_queue"`
+		LoadFactorFeeReference   int    `json:"load_factor_fee_reference"`
+		LoadFactorServer         int    `json:"load_factor_server"`
+		NetworkId                int    `json:"network_id"`
+		PeerDisconnects          string `json:"peer_disconnects"`
+		PeerDisconnectsResources string `json:"peer_disconnects_resources"`
+		Peers                    int    `json:"peers"`
+		Ports                    []struct {
+			Port     string   `json:"port"`
+			Protocol []string `json:"protocol"`
+		} `json:"ports"`
+		PubkeyNode            string `json:"pubkey_node"`
+		ServerState           string `json:"server_state"`
+		ServerStateDurationUs string `json:"server_state_duration_us"`
+		StateAccounting       struct {
+			Connected struct {
+				DurationUs  string `json:"duration_us"`
+				Transitions string `json:"transitions"`
+			} `json:"connected"`
+			Disconnected struct {
+				DurationUs  string `json:"duration_us"`
+				Transitions string `json:"transitions"`
+			} `json:"disconnected"`
+			Full struct {
+				DurationUs  string `json:"duration_us"`
+				Transitions string `json:"transitions"`
+			} `json:"full"`
+			Syncing struct {
+				DurationUs  string `json:"duration_us"`
+				Transitions string `json:"transitions"`
+			} `json:"syncing"`
+			Tracking struct {
+				DurationUs  string `json:"duration_us"`
+				Transitions string `json:"transitions"`
+			} `json:"tracking"`
+		} `json:"state_accounting"`
+		Time            string `json:"time"`
+		Uptime          int    `json:"uptime"`
+		ValidatedLedger struct {
+			BaseFee     int    `json:"base_fee"`
+			CloseTime   int    `json:"close_time"`
+			Hash        string `json:"hash"`
+			ReserveBase int    `json:"reserve_base"`
+			ReserveInc  int    `json:"reserve_inc"`
+			Seq         int    `json:"seq"`
+		} `json:"validated_ledger"`
+		ValidationQuorum int `json:"validation_quorum"`
+	} `json:"state"`
+}

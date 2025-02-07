@@ -220,8 +220,9 @@ type RipplePathFindResult struct {
 
 type AccountInfoCommand struct {
 	*Command
-	Account data.Account       `json:"account"`
-	Result  *AccountInfoResult `json:"result,omitempty"`
+	Account     data.Account       `json:"account"`
+	LedgerIndex interface{}        `json:"ledger_index,omitempty"`
+	Result      *AccountInfoResult `json:"result,omitempty"`
 }
 
 type AccountInfoResult struct {

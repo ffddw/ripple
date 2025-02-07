@@ -368,10 +368,11 @@ func (r *Remote) RipplePathFind(src, dest data.Account, amount data.Amount, srcC
 }
 
 // Synchronously requests account info
-func (r *Remote) AccountInfo(a data.Account) (*AccountInfoResult, error) {
+func (r *Remote) AccountInfo(a data.Account, ledgerIndex interface{}) (*AccountInfoResult, error) {
 	cmd := &AccountInfoCommand{
-		Command: newCommand("account_info"),
-		Account: a,
+		Command:     newCommand("account_info"),
+		LedgerIndex: ledgerIndex,
+		Account:     a,
 	}
 	r.outgoing <- cmd
 	<-cmd.Ready

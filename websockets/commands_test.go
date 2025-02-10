@@ -182,3 +182,23 @@ func (s *MessagesSuite) TestServerStateResponse(c *C) {
 	c.Assert(msg.Result.State.ValidatedLedger.CloseTime, Equals, 792148241)
 	c.Assert(msg.Result.State.ValidatedLedger.Hash, Equals, "0A6DFE7685BB62B5D434DDF8939DA3C617C6988BC9BF65409DB4BE035A7C1001")
 }
+
+func (s *MessagesSuite) TestSubmitResultResponse(c *C) {
+	msg := &SubmitCommand{}
+	readResponseFile(c, msg, "testdata/submit_result.json")
+
+	// Response fields
+	c.Assert(msg.Status, Equals, "success")
+	c.Assert(msg.Type, Equals, "response")
+
+	c.Assert(msg.Result.Tx.Account, Equals, "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59")
+	c.Assert(msg.Result.Tx.Domain, Equals, "726970706C652E636F6D")
+	c.Assert(msg.Result.Tx.Fee, Equals, "12")
+	c.Assert(msg.Result.Tx.Flags, Equals, uint32(2147483648))
+	c.Assert(msg.Result.Tx.LastLedgerSequence, Equals, uint32(8820051))
+	c.Assert(msg.Result.Tx.Sequence, Equals, uint32(23))
+	c.Assert(msg.Result.Tx.SigningPubKey, Equals, "02F89EAEC7667B30F33D0687BBA86C3FE2A08CCA40A9186C5BDE2DAA6FA97A37D8")
+	c.Assert(msg.Result.Tx.TransactionType, Equals, "AccountSet")
+	c.Assert(msg.Result.Tx.TxnSignature, Equals, "3045022100BDE09A1F6670403F341C21A77CF35BA47E45CDE974096E1AA5FC39811D8269E702203D60291B9A27F1DCABA9CF5DED307B4F23223E0B6F156991DB601DFB9C41CE1C")
+	c.Assert(msg.Result.Tx.Hash, Equals, "02ACE87F1996E3A23690A5BB7F1774BF71CCBA68F79805831B42ABAD5913D6F4")
+}

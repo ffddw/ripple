@@ -131,23 +131,25 @@ type SubmitCommand struct {
 	Result *SubmitResult `json:"result,omitempty"`
 }
 
+type SubmitResultTxJSON struct {
+	Account            string `json:"Account"`
+	Domain             string `json:"Domain"`
+	Fee                string `json:"Fee"`
+	Flags              uint32 `json:"Flags"`
+	LastLedgerSequence uint32 `json:"LastLedgerSequence"`
+	Sequence           uint32 `json:"Sequence"`
+	SigningPubKey      string `json:"SigningPubKey"`
+	TransactionType    string `json:"TransactionType"`
+	TxnSignature       string `json:"TxnSignature"`
+	Hash               string `json:"hash"`
+}
+
 type SubmitResult struct {
 	EngineResult        data.TransactionResult `json:"engine_result"`
 	EngineResultCode    int                    `json:"engine_result_code"`
 	EngineResultMessage string                 `json:"engine_result_message"`
 	TxBlob              string                 `json:"tx_blob"`
-	Tx                  struct {
-		Account            string `json:"Account"`
-		Domain             string `json:"Domain"`
-		Fee                string `json:"Fee"`
-		Flags              uint32 `json:"Flags"`
-		LastLedgerSequence uint32 `json:"LastLedgerSequence"`
-		Sequence           uint32 `json:"Sequence"`
-		SigningPubKey      string `json:"SigningPubKey"`
-		TransactionType    string `json:"TransactionType"`
-		TxnSignature       string `json:"TxnSignature"`
-		Hash               string `json:"hash"`
-	} `json:"tx_json"`
+	Tx                  *SubmitResultTxJSON    `json:"tx_json"`
 }
 
 type LedgerCommand struct {

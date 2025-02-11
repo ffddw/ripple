@@ -25,6 +25,7 @@ const (
 	NFTOKEN_PAGE     LedgerEntryType = 0x50 // 'P'
 	NFTOKEN_OFFER    LedgerEntryType = 0x37 // '7'
 	AMM_LT           LedgerEntryType = 0x79
+	ORACLE           LedgerEntryType = 0x52
 
 	// TransactionType values come from rippled's "TxFormats.h"
 	PAYMENT              TransactionType = 0
@@ -63,6 +64,7 @@ const (
 	AMENDMENT  TransactionType = 100
 	SET_FEE    TransactionType = 101
 	UNL_MODIFY TransactionType = 102
+	ORACLE_SET TransactionType = 103
 )
 
 var LedgerFactory = [...]func() Hashable{
@@ -87,6 +89,7 @@ var LedgerEntryFactory = [...]func() LedgerEntry{
 	NFTOKEN_PAGE:     func() LedgerEntry { return &NFTokenPage{leBase: leBase{LedgerEntryType: NFTOKEN_PAGE}} },
 	NFTOKEN_OFFER:    func() LedgerEntry { return &NFTokenOffer{leBase: leBase{LedgerEntryType: NFTOKEN_OFFER}} },
 	AMM_LT:           func() LedgerEntry { return &AMM{leBase: leBase{LedgerEntryType: AMM_LT}} },
+	ORACLE:           func() LedgerEntry { return &Oracle{leBase: leBase{LedgerEntryType: ORACLE}} },
 }
 
 var TxFactory = [...]func() Transaction{
@@ -124,6 +127,7 @@ var TxFactory = [...]func() Transaction{
 	AMM_VOTE:             func() Transaction { return &AMMVote{TxBase: TxBase{TransactionType: AMM_VOTE}} },
 	AMM_BID:              func() Transaction { return &AMMBid{TxBase: TxBase{TransactionType: AMM_BID}} },
 	AMM_DELETE:           func() Transaction { return &AMMDelete{TxBase: TxBase{TransactionType: AMM_DELETE}} },
+	ORACLE_SET:           func() Transaction { return &OracleSet{TxBase: TxBase{TransactionType: ORACLE_SET}} },
 }
 
 var ledgerEntryNames = [...]string{
@@ -144,6 +148,7 @@ var ledgerEntryNames = [...]string{
 	NFTOKEN_PAGE:     "NFTokenPage",
 	NFTOKEN_OFFER:    "NFTokenOffer",
 	AMM_LT:           "AMM",
+	ORACLE:           "Oracle",
 }
 
 var ledgerEntryTypes = map[string]LedgerEntryType{
@@ -164,6 +169,7 @@ var ledgerEntryTypes = map[string]LedgerEntryType{
 	"NFTokenPage":    NFTOKEN_PAGE,
 	"NFTokenOffer":   NFTOKEN_OFFER,
 	"AMM":            AMM_LT,
+	"Oracle":         ORACLE,
 }
 
 var txNames = [...]string{
@@ -201,6 +207,7 @@ var txNames = [...]string{
 	AMM_VOTE:             "AMMVote",
 	AMM_BID:              "AMMBid",
 	AMM_DELETE:           "AMMDelete",
+	ORACLE_SET:           "OracleSet",
 }
 
 var txTypes = map[string]TransactionType{
@@ -238,6 +245,7 @@ var txTypes = map[string]TransactionType{
 	"AMMVote":              AMM_VOTE,
 	"AMMBid":               AMM_BID,
 	"AMMDelete":            AMM_DELETE,
+	"OracleSet":            ORACLE_SET,
 }
 
 var HashableTypes []string

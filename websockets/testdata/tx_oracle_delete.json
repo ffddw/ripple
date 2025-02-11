@@ -1,0 +1,157 @@
+{
+  "result": {
+    "Account": "roosteri9aGNFRXZrJNYQKVBfxHiE5abg",
+    "Fee": "12",
+    "OracleDocumentID": 1,
+    "Sequence": 92545197,
+    "SigningPubKey": "03E5B78E49930BCC391F94C64875879E8BED4A924C9110C7A200F8827544957A92",
+    "TransactionType": "OracleDelete",
+    "TxnSignature": "304502210089B24B7A836EE3CB87F9065851112FAF7DCEBA7B8487893FBE7B9CFAAAACB6B302206EF3912B1F2F2282DC6210BBDE35AF04C935BA5697AAC7EE5ADE32B0ADFF4C44",
+    "ctid": "C59B5B0A00390000",
+    "date": 792568391,
+    "hash": "C5E277B47209744103E13E5C6CAC57E9F7FC2E8119EC8309E50C846DB852CC7D",
+    "inLedger": 94067466,
+    "ledger_index": 94067466,
+    "meta": {
+      "AffectedNodes": [
+        {
+          "ModifiedNode": {
+            "FinalFields": {
+              "Account": "roosteri9aGNFRXZrJNYQKVBfxHiE5abg",
+              "Balance": "106586146",
+              "Flags": 1048576,
+              "OwnerCount": 12,
+              "RegularKey": "raXvXrPpVaS2GuQUFPYT6KusshkvbD6ejt",
+              "Sequence": 92545198
+            },
+            "LedgerEntryType": "AccountRoot",
+            "LedgerIndex": "61D2E7C0A4CB0D136954441810291E124A1D581F419B4A5777808E9F9B11EDD6",
+            "PreviousFields": {
+              "Balance": "106586158",
+              "OwnerCount": 14,
+              "Sequence": 92545197
+            },
+            "PreviousTxnID": "F9CBACF4F816988DD23A21EC5F2C46036C070AC8CE7E483B3F61B27443CDA723",
+            "PreviousTxnLgrSeq": 94067466
+          }
+        },
+        {
+          "ModifiedNode": {
+            "FinalFields": {
+              "Flags": 0,
+              "Owner": "roosteri9aGNFRXZrJNYQKVBfxHiE5abg",
+              "RootIndex": "6F5E64F7BB69984DB4A0E1679DD325B5DE02F9E6EF19923704136BD5AC0A2C38"
+            },
+            "LedgerEntryType": "DirectoryNode",
+            "LedgerIndex": "6F5E64F7BB69984DB4A0E1679DD325B5DE02F9E6EF19923704136BD5AC0A2C38",
+            "PreviousTxnID": "737D95572976C339C7699BA6E31E475F64648874C70FF679D12F2FC54375251D",
+            "PreviousTxnLgrSeq": 94067296
+          }
+        },
+        {
+          "DeletedNode": {
+            "FinalFields": {
+              "AssetClass": "63757272656E6379",
+              "Flags": 0,
+              "LastUpdateTime": 1739253127,
+              "Owner": "roosteri9aGNFRXZrJNYQKVBfxHiE5abg",
+              "OwnerNode": "0",
+              "PreviousTxnID": "42E6A020A10AEA6DEEDE9D8F7916577EF64C081612AF09455CC08B0825D341CE",
+              "PreviousTxnLgrSeq": 94067450,
+              "PriceDataSeries": [
+                {
+                  "PriceData": {
+                    "AssetPrice": "18e",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "AUD",
+                    "Scale": 2
+                  }
+                },
+                {
+                  "PriceData": {
+                    "AssetPrice": "2334d",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "BRL",
+                    "Scale": 4
+                  }
+                },
+                {
+                  "PriceData": {
+                    "AssetPrice": "14bbe",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "BYN",
+                    "Scale": 4
+                  }
+                },
+                {
+                  "PriceData": {
+                    "AssetPrice": "8b2c",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "CAD",
+                    "Scale": 4
+                  }
+                },
+                {
+                  "PriceData": {
+                    "AssetPrice": "e746de5",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "EUR",
+                    "Scale": 8
+                  }
+                },
+                {
+                  "PriceData": {
+                    "AssetPrice": "538b22b",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "EVR",
+                    "Scale": 7
+                  }
+                },
+                {
+                  "PriceData": {
+                    "AssetPrice": "3158d",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "GBP",
+                    "Scale": 5
+                  }
+                },
+                {
+                  "PriceData": {
+                    "AssetPrice": "14cbf8b",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "INR",
+                    "Scale": 5
+                  }
+                },
+                {
+                  "PriceData": {
+                    "AssetPrice": "369c0",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "IRR"
+                  }
+                },
+                {
+                  "PriceData": {
+                    "AssetPrice": "16a48f3c",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "JPY",
+                    "Scale": 6
+                  }
+                }
+              ],
+              "Provider": "7468726565787270",
+              "URI": "68747470733A2F2F6174746573746174696F6E2E74687265657872702E6465762F63757272656E63793A39343036373434393A39323534353138383A31"
+            },
+            "LedgerEntryType": "Oracle",
+            "LedgerIndex": "CDDA851146DBCDBC136CB3E97D4E4112F47C62A55FB0E506513197E4D0A08594"
+          }
+        }
+      ],
+      "TransactionIndex": 57,
+      "TransactionResult": "tesSUCCESS"
+    },
+    "validated": true
+  },
+  "status": "success",
+  "type": "response"
+}

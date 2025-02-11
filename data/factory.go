@@ -61,10 +61,11 @@ const (
 	AMM_BID              TransactionType = 39
 	AMM_DELETE           TransactionType = 40
 
-	AMENDMENT  TransactionType = 100
-	SET_FEE    TransactionType = 101
-	UNL_MODIFY TransactionType = 102
-	ORACLE_SET TransactionType = 103
+	AMENDMENT     TransactionType = 100
+	SET_FEE       TransactionType = 101
+	UNL_MODIFY    TransactionType = 102
+	ORACLE_SET    TransactionType = 103
+	ORACLE_DELETE TransactionType = 104
 )
 
 var LedgerFactory = [...]func() Hashable{
@@ -128,6 +129,7 @@ var TxFactory = [...]func() Transaction{
 	AMM_BID:              func() Transaction { return &AMMBid{TxBase: TxBase{TransactionType: AMM_BID}} },
 	AMM_DELETE:           func() Transaction { return &AMMDelete{TxBase: TxBase{TransactionType: AMM_DELETE}} },
 	ORACLE_SET:           func() Transaction { return &OracleSet{TxBase: TxBase{TransactionType: ORACLE_SET}} },
+	ORACLE_DELETE:        func() Transaction { return &OracleDelete{TxBase: TxBase{TransactionType: ORACLE_DELETE}} },
 }
 
 var ledgerEntryNames = [...]string{
@@ -208,6 +210,7 @@ var txNames = [...]string{
 	AMM_BID:              "AMMBid",
 	AMM_DELETE:           "AMMDelete",
 	ORACLE_SET:           "OracleSet",
+	ORACLE_DELETE:        "OracleDelete",
 }
 
 var txTypes = map[string]TransactionType{
@@ -246,6 +249,7 @@ var txTypes = map[string]TransactionType{
 	"AMMBid":               AMM_BID,
 	"AMMDelete":            AMM_DELETE,
 	"OracleSet":            ORACLE_SET,
+	"OracleDelete":         ORACLE_DELETE,
 }
 
 var HashableTypes []string

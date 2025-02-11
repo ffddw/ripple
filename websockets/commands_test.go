@@ -122,6 +122,30 @@ func (s *MessagesSuite) TestTxResponseOracleSet(c *C) {
 	c.Assert(oracle.Sequence, Equals, uint32(69611178))
 }
 
+func (s *MessagesSuite) TestTxResponseOracleDelete(c *C) {
+	msg := &TxCommand{}
+	readResponseFile(c, msg, "testdata/tx_oracle_delete.json")
+
+	// Response fields
+	c.Assert(msg.Status, Equals, "success")
+	c.Assert(msg.Type, Equals, "response")
+
+	// Result fields
+	c.Assert(msg.Result.Date.String(), Equals, "2025-Feb-11 05:53:11 UTC")
+	c.Assert(msg.Result.Validated, Equals, true)
+	c.Assert(msg.Result.MetaData.AffectedNodes, HasLen, 3)
+	c.Assert(msg.Result.MetaData.TransactionResult.String(), Equals, "tesSUCCESS")
+
+	oracle := msg.Result.Transaction.(*data.OracleDelete)
+	c.Assert(msg.Result.GetHash().String(), Equals, "C5E277B47209744103E13E5C6CAC57E9F7FC2E8119EC8309E50C846DB852CC7D")
+	c.Assert(oracle.GetType(), Equals, "OracleDelete")
+	c.Assert(oracle.Account.String(), Equals, "roosteri9aGNFRXZrJNYQKVBfxHiE5abg")
+	c.Assert(oracle.Fee.String(), Equals, "0.000012")
+	c.Assert(oracle.SigningPubKey.String(), Equals, "03E5B78E49930BCC391F94C64875879E8BED4A924C9110C7A200F8827544957A92")
+	c.Assert(oracle.TxnSignature.String(), Equals, "304502210089B24B7A836EE3CB87F9065851112FAF7DCEBA7B8487893FBE7B9CFAAAACB6B302206EF3912B1F2F2282DC6210BBDE35AF04C935BA5697AAC7EE5ADE32B0ADFF4C44")
+	c.Assert(oracle.Sequence, Equals, uint32(92545197))
+}
+
 func (s *MessagesSuite) TestAccountTxResponse(c *C) {
 	msg := &AccountTxCommand{}
 	readResponseFile(c, msg, "testdata/account_tx.json")

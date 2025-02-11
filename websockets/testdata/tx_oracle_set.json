@@ -1,0 +1,98 @@
+{
+  "result": {
+    "Account": "rrJPYwVRyWFcwfaNMm83QEaCexEpKnkEg",
+    "AssetClass": "63757272656E6379",
+    "Fee": "12",
+    "Flags": 0,
+    "LastLedgerSequence": 94067213,
+    "LastUpdateTime": 1739252128,
+    "OracleDocumentID": 1,
+    "PriceDataSeries": [
+      {
+        "PriceData": {
+          "AssetPrice": "5cb48",
+          "BaseAsset": "XRP",
+          "QuoteAsset": "JPY",
+          "Scale": 3
+        }
+      }
+    ],
+    "Provider": "42697462616E6B",
+    "Sequence": 69611178,
+    "SigningPubKey": "039971FA8F08E76B59DE4D4525451C2200E585D0CC5AC52C8E9EBB753B2FC6A6C9",
+    "TransactionType": "OracleSet",
+    "TxnSignature": "3044022034CBED2017EC8938EE60CA44C039BF1103C1EE46A57BDFE6FF7A8E3199DD427D02200C07CA8CE664649BA7FE735A505046E7FED19AC61AEFD91D226FEFC97EC39A3D",
+    "ctid": "C59B59FB00160000",
+    "date": 792567332,
+    "hash": "940E8BE41222353F2971C90B572BBC4549F5B823E1F056A13C43055407B4F77D",
+    "inLedger": 94067195,
+    "ledger_index": 94067195,
+    "meta": {
+      "AffectedNodes": [
+        {
+          "ModifiedNode": {
+            "FinalFields": {
+              "AssetClass": "63757272656E6379",
+              "Flags": 0,
+              "LastUpdateTime": 1739252128,
+              "Owner": "rrJPYwVRyWFcwfaNMm83QEaCexEpKnkEg",
+              "OwnerNode": "0",
+              "PriceDataSeries": [
+                {
+                  "PriceData": {
+                    "AssetPrice": "5cb48",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "JPY",
+                    "Scale": 3
+                  }
+                }
+              ],
+              "Provider": "42697462616E6B"
+            },
+            "LedgerEntryType": "Oracle",
+            "LedgerIndex": "6506E80DF6B02BB152187EA4150DF07AC1C69389B9505DFF693C214FD74AD6D8",
+            "PreviousFields": {
+              "LastUpdateTime": 1739252068,
+              "PriceDataSeries": [
+                {
+                  "PriceData": {
+                    "AssetPrice": "5c9a1",
+                    "BaseAsset": "XRP",
+                    "QuoteAsset": "JPY",
+                    "Scale": 3
+                  }
+                }
+              ]
+            },
+            "PreviousTxnID": "58435A16253457D5D123515E75EB2278ADFD5151BFA96D99D9241D3A8C7551ED",
+            "PreviousTxnLgrSeq": 94067179
+          }
+        },
+        {
+          "ModifiedNode": {
+            "FinalFields": {
+              "Account": "rrJPYwVRyWFcwfaNMm83QEaCexEpKnkEg",
+              "Balance": "28954045",
+              "Flags": 0,
+              "OwnerCount": 3,
+              "Sequence": 69611179
+            },
+            "LedgerEntryType": "AccountRoot",
+            "LedgerIndex": "8C46203E258F41291615C3063913CA1331A941EC8369B0B7708D39CA152A8D1B",
+            "PreviousFields": {
+              "Balance": "28954057",
+              "Sequence": 69611178
+            },
+            "PreviousTxnID": "61408888077A703F34171456C84D13A59A64CBD43080B8D93047FC66C60E7D6D",
+            "PreviousTxnLgrSeq": 94067179
+          }
+        }
+      ],
+      "TransactionIndex": 22,
+      "TransactionResult": "tesSUCCESS"
+    },
+    "validated": true
+  },
+  "status": "success",
+  "type": "response"
+}

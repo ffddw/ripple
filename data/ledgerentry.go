@@ -264,6 +264,17 @@ type AMM struct {
 	OwnerNode      *NodeIndex       `json:",omitempty"`
 }
 
+type Oracle struct {
+	leBase
+	Flags   *LedgerEntryFlag `json:",omitempty"`
+	Account *Account         `json:",omitempty"`
+	// TODO: Add fields
+}
+
+func (o Oracle) Affects(account Account) bool {
+	return o.Account != nil && o.Account.Equals(account)
+}
+
 func (a *AccountRoot) Affects(account Account) bool {
 	return a.Account != nil && a.Account.Equals(account)
 }

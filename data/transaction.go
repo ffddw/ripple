@@ -313,6 +313,18 @@ type Clawback struct {
 	Amount Amount
 }
 
+type OracleSetPriceData struct {
+	AssetPrice string `json:"AssetPrice"`
+	BaseAsset  string `json:"BaseAsset"`
+	QuoteAsset string `json:"QuoteAsset"`
+	Scale      int    `json:"Scale"`
+}
+type OracleSet struct {
+	TxBase
+	OracleDocumentID int                  `json:"OracleDocumentID"`
+	PriceDataSeries  []OracleSetPriceData `json:"PriceDataSeries"`
+}
+
 func (t *TxBase) GetBase() *TxBase                    { return t }
 func (t *TxBase) GetType() string                     { return txNames[t.TransactionType] }
 func (t *TxBase) GetTransactionType() TransactionType { return t.TransactionType }
